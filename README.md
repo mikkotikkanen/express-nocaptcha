@@ -3,7 +3,7 @@ express-nocaptcha
 
 __Express.js middleware for Google's [No CAPTCHA reCAPTCHA](http://www.google.com/recaptcha/intro/)__
 
-When form is posted with [No CAPTCHA reCAPTCHA](http://www.google.com/recaptcha/intro/) element in it, the middleware automatically validates the response against Google API.
+When form is posted with [No CAPTCHA reCAPTCHA](http://www.google.com/recaptcha/intro/) element in it, the middleware automatically validates the request token against Google API.
 
 
 Usage
