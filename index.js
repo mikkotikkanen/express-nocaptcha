@@ -15,7 +15,7 @@ router.post('*', function(req, res, next) {
 	// Verify user
 	request.get({ url: 'https://www.google.com/recaptcha/api/siteverify?secret='+secret+'&response='+req.body['g-recaptcha-response']+'&remoteip='+req.ip, json: true }, function(err, response, body) {
 		if(err) { return next(err); }
-		if(body.success) { req.nocaptcha = true; }
+		if(body.success) { req.validnocaptcha = true; }
 		next();
 	});
 });
