@@ -1,0 +1,25 @@
+{
+  "name": "express-nocaptcha",
+  "version": "1.0.0",
+  "description": "Express.js middleware for Google's No CAPTCHA reCAPTCHA",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikkotikkanen/express-nocaptcha.git"
+  },
+  "keywords": [
+    "recaptcha"
+  ],
+  "author": "Mikko Tikkanen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikkotikkanen/express-nocaptcha/issues"
+  },
+  "homepage": "https://github.com/mikkotikkanen/express-nocaptcha",
+  "dependencies": {
+    "request": "^2.53.0"
+  }
+}
