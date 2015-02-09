@@ -9,7 +9,7 @@ When form is posted with [No CAPTCHA reCAPTCHA](http://www.google.com/recaptcha/
 ## Install
 
 ```sh
-$ npm install express-nocatpcha
+$ npm install express-nocaptcha
 ```
 
 
