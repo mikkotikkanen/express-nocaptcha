@@ -1,14 +1,22 @@
 /*
  * Express middleware for Google's No CAPTCHA reCAPTCHA 
+ * (http://www.google.com/recaptcha/intro/)
  * 
- * http://www.google.com/recaptcha/intro/
+ * When form is posted with No CAPTCHA reCAPTCHA element in it, the middleware
+ * will check the generated token against Google API.
+ * If token is good, req.validnocaptcha is set as true.
  */
 var express = require('express'),
 	router = express.Router(),
 	request = require('request');
 
+// API key
 var secret = null;
 
+
+/*
+ * Main router
+ */
 router.post('*', function(req, res, next) {
 	if(!req.body || !req.body['g-recaptcha-response']) { return next(); }
 	
@@ -22,14 +30,15 @@ router.post('*', function(req, res, next) {
 
 
 /*
- * 
+ * Factory which receives the options and returns the router
  */
 module.exports = function(opts) {
 	opts = opts || {};
 	
+	// Make sure the secret is set
 	if(!opts.secret) {
 		console.error('Secret key is required for express-nocaptcha to work');
-		return process.exit(1);
+		return null;
 	}
 	
 	secret = opts.secret;
