@@ -1,6 +1,6 @@
 {
   "name": "express-nocaptcha",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Express.js middleware for Google's No CAPTCHA reCAPTCHA",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mikkotikkanen/express-nocaptcha",
   "dependencies": {
+    "express": "^4.11.2",
     "request": "^2.53.0"
   }
 }

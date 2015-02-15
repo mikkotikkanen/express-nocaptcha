@@ -37,7 +37,7 @@ module.exports = function(opts) {
 	
 	// Make sure the secret is set
 	if(!opts.secret) {
-		console.error('Secret key is required for express-nocaptcha to work');
+		throw new Error('Secret key is required for "express-nocaptcha" to work');
 		return null;
 	}
 	

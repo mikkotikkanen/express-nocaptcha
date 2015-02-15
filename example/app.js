@@ -1,7 +1,7 @@
 /*
  * Example for express-nocaptcha
  * 
- * Requires express, body-parser and express-nocaptcha to run
+ * Requires express and body-parser to run
  */
 var express = require('express');
 var app = express();
@@ -13,7 +13,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(require('body-parser').urlencoded({ extended: false }));
 
 // Use express-nocaptcha
-app.use(require('express-nocaptcha')({
+app.use(require('../index')({
   secret: 'abcdefghijklmnopqrstuvxyz'
 }));
 
