@@ -3,7 +3,7 @@ express-nocaptcha
 
 __Express.js middleware for Google's [No CAPTCHA reCAPTCHA](http://www.google.com/recaptcha/intro/)__
 
-When form is posted with [No CAPTCHA reCAPTCHA](http://www.google.com/recaptcha/intro/) element in it, the middleware automatically validates the request token against Google API.
+When form is posted with [No CAPTCHA reCAPTCHA](http://www.google.com/recaptcha/intro/) element in it, the middleware automatically validates the request token against Google API and passes the request on.
 
 
 ## Install
@@ -31,5 +31,9 @@ app.use(require('express-nocaptcha')({
 If captcha is valid, for subsequent middlewares, `req.validnocaptcha` is set to true
 
 ```js
-if(!req.validnocaptcha) { return next(); }
+app.post(function(req, res, next) {
+  if(!req.validnocaptcha) { return next(); }
+
+  // Valid nocaptcha. Do stuff here...
+});
 ```
