@@ -11,7 +11,11 @@
     "url": "https://github.com/mikkotikkanen/express-nocaptcha.git"
   },
   "keywords": [
-    "recaptcha"
+	"express",
+	"captcha",
+    "recaptcha",
+	"nocaptcha",
+	"google"
   ],
   "author": "Mikko Tikkanen",
   "license": "ISC",
