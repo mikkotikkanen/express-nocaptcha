@@ -6,31 +6,34 @@
  * will check the generated token against Google API.
  * If token is good, req.validnocaptcha is set as true.
  */
-var express = require('express'),
-	router = express.Router(),
-	request = require('request');
+var request = require('request');
 
-// API key
-var secret = null;
+// Options
+var options = null;
 
 
 /*
- * Main router
+ * Middleware
  */
-router.post('*', function(req, res, next) {
+var middleware = function(req, res, next) {
+	
+	// Only handle POST requests
+	if(req.method !== 'POST') { return next(); }
+	
+	// If no body nor g-recaptcha-response was defined, GTFO
 	if(!req.body || !req.body['g-recaptcha-response']) { return next(); }
 	
-	// Verify user
-	request.get({ url: 'https://www.google.com/recaptcha/api/siteverify?secret='+secret+'&response='+req.body['g-recaptcha-response']+'&remoteip='+req.ip, json: true }, function(err, response, body) {
+	// Verify user with Google API
+	request.get({ url: 'https://www.google.com/recaptcha/api/siteverify?secret='+options.secret+'&response='+req.body['g-recaptcha-response']+'&remoteip='+req.ip, json: true }, function(err, response, body) {
 		if(err) { return next(err); }
 		if(body.success) { req.validnocaptcha = true; }
 		next();
 	});
-});
+};
 
 
 /*
- * Factory which receives the options and returns the router
+ * Factory which receives the options and returns the middleware
  */
 module.exports = function(opts) {
 	opts = opts || {};
@@ -41,7 +44,8 @@ module.exports = function(opts) {
 		return null;
 	}
 	
-	secret = opts.secret;
-	return router;
+	// Store options and return middleware
+	options = opts;
+	return middleware;
 };
 	

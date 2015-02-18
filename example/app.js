@@ -20,9 +20,9 @@ app.use(require('../index')({
 // Formhandler for nocaptcha
 app.post('/formhandler', function(req, res) {
 	if(req.validnocaptcha) {
-		res.send('<b>Valid</b> No CAPTCHA reCAPTCHA');
+		res.send('<b>Valid :)</b> No CAPTCHA reCAPTCHA');
 	} else {
-		res.send('<b>Invalid</b> No CAPTCHA reCAPTCHA');
+		res.send('<b>Invalid :(</b> No CAPTCHA reCAPTCHA');
 	}
 });
 
