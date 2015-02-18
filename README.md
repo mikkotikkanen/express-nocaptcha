@@ -15,9 +15,11 @@ $ npm install express-nocaptcha
 
 ## Usage
 
+Add [No CAPTCHA reCAPTCHA](http://www.google.com/recaptcha/intro/) to the form that you want to have validation on. Refer to the [Developer's Guide](https://developers.google.com/recaptcha/intro) how to do this.
+
 ### Setup
 
-Load `express-nocaptcha` and set your Google API secret key to it:
+Load `express-nocaptcha` and set your [Google API secret key](https://www.google.com/recaptcha/admin) to it:
 
 ```js
 app.use(require('express-nocaptcha')({
@@ -28,7 +30,7 @@ app.use(require('express-nocaptcha')({
 
 ### req.validnocaptcha
 
-If captcha is valid, for subsequent middlewares, `req.validnocaptcha` is set to true
+If captcha is valid, for subsequent middlewares, `req.validnocaptcha` is set to true.
 
 ```js
 app.post(function(req, res, next) {
