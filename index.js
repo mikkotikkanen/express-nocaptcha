@@ -42,7 +42,6 @@ module.exports = function(opts) {
 	// Make sure the secret is set
 	if(!opts.secret) {
 		throw new Error('Secret key is required for "express-nocaptcha" to work');
-		return null;
 	}
 	
 	// Store options and return middleware
