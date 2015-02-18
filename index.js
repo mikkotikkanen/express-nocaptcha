@@ -6,6 +6,7 @@
  * will check the generated token against Google API.
  * If token is good, req.validnocaptcha is set as true.
  */
+/* jshint node: true */
 var request = require('request');
 
 // Options

@@ -3,6 +3,7 @@
  * 
  * Requires express and body-parser to run
  */
+/* jshint node: true */
 var express = require('express');
 var app = express();
 
